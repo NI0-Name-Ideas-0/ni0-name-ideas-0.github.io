@@ -1,0 +1,82 @@
+<nav class="bg-white border-b border-gray-200" aria-label="Hauptnavigation">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="flex items-center justify-between h-14">
+      <a routerLink="/home" class="text-lg font-semibold text-gray-900" aria-label="Startseite">
+        ni0.team
+      </a>
+
+      <!-- Desktop nav -->
+      <ul class="hidden md:flex gap-1" role="list">
+        @for (link of navLinks; track link.path) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="bg-blue-50 text-blue-700 font-medium"
+              class="px-3 py-1.5 rounded text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+        <li>
+          <a
+            href="https://github.com/orgs/NI0-Name-Ideas-0/repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3 py-1.5 rounded text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+            aria-label="GitHub Repository (öffnet in neuem Tab)"
+          >
+            Repository ↗
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile toggle -->
+      <button
+        type="button"
+        class="md:hidden p-2 rounded text-gray-600 hover:bg-gray-100"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-menu"
+        aria-label="Navigation öffnen"
+        (click)="toggleMenu()"
+      >
+        @if (menuOpen()) {
+          <span aria-hidden="true">✕</span>
+        } @else {
+          <span aria-hidden="true">☰</span>
+        }
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (menuOpen()) {
+    <div id="mobile-menu" class="md:hidden border-t border-gray-100">
+      <ul class="px-4 py-2 flex flex-col gap-1" role="list">
+        @for (link of navLinks; track link.path) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="bg-blue-50 text-blue-700 font-medium"
+              class="block px-3 py-2 rounded text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              (click)="closeMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+        <li>
+          <a
+            href="https://github.com/orgs/NI0-Name-Ideas-0/repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block px-3 py-2 rounded text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            (click)="closeMenu()"
+          >
+            Repository ↗
+          </a>
+        </li>
+      </ul>
+    </div>
+  }
+</nav>

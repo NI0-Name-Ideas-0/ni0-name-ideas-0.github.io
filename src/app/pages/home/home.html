@@ -1,0 +1,52 @@
+<div class="max-w-5xl mx-auto px-4 py-12">
+  <!-- Hero -->
+  <section class="mb-12" aria-labelledby="hero-heading">
+    <div class="mb-2 text-sm font-medium text-blue-600 uppercase tracking-wide">
+      Software Engineering &mdash; Universitätsprojekt
+    </div>
+    <h1 id="hero-heading" class="text-4xl font-bold text-gray-900 mb-4">
+      {{ projectName() }}
+    </h1>
+    <p class="text-lg text-gray-600 max-w-2xl mb-6">
+      Ein webbasiertes System zur strukturierten Planung und Verwaltung von Aufgaben
+      innerhalb von Organisationen. Aufgaben können priorisiert, zugewiesen und
+      automatisch geplant werden.
+    </p>
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-50 border border-amber-200 rounded text-sm text-amber-800">
+      <span class="w-2 h-2 rounded-full bg-amber-500" aria-hidden="true"></span>
+      <span>Projektstatus: {{ projectStatus() }}</span>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="mb-12" aria-labelledby="features-heading">
+    <h2 id="features-heading" class="text-xl font-semibold text-gray-900 mb-4">
+      Kernfunktionen
+    </h2>
+    <ul class="grid sm:grid-cols-2 gap-3" role="list">
+      @for (feature of features(); track feature) {
+        <li class="flex items-start gap-2 p-4 bg-white border border-gray-200 rounded-lg">
+          <span class="text-blue-500 mt-0.5 shrink-0" aria-hidden="true">✓</span>
+          <span class="text-gray-700 text-sm">{{ feature }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <!-- Quick links -->
+  <section aria-labelledby="links-heading">
+    <h2 id="links-heading" class="text-xl font-semibold text-gray-900 mb-4">
+      Schnellzugriff
+    </h2>
+    <div class="flex flex-wrap gap-3">
+      @for (link of quickLinks(); track link.path) {
+        <a
+          [routerLink]="link.path"
+          class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </div>
+  </section>
+</div>

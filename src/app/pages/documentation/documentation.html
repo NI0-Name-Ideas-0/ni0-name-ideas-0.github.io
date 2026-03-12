@@ -1,0 +1,32 @@
+<div class="max-w-5xl mx-auto px-4 py-12">
+  <h1 class="text-3xl font-bold text-gray-900 mb-2">Dokumentation</h1>
+  <p class="text-gray-500 mb-10">Wöchentlicher Projektfortschritt</p>
+
+  <div class="space-y-6">
+    @for (entry of entries(); track entry.week) {
+      <article class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50">
+          <h2 class="text-sm font-semibold text-gray-900">{{ entry.week }}</h2>
+          <time class="text-xs text-gray-500">{{ entry.date }}</time>
+        </div>
+        <div class="px-6 py-4">
+          <ul class="space-y-2" role="list">
+            @for (item of entry.items; track item) {
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-blue-400 shrink-0 mt-0.5" aria-hidden="true">•</span>
+                {{ item }}
+              </li>
+            }
+          </ul>
+        </div>
+      </article>
+    }
+
+    <!-- Placeholder für zukünftige Wochen -->
+    <div class="border-2 border-dashed border-gray-200 rounded-lg px-6 py-8 text-center">
+      <p class="text-sm text-gray-400">
+        Weitere Einträge werden im Laufe des Projekts ergänzt.
+      </p>
+    </div>
+  </div>
+</div>
