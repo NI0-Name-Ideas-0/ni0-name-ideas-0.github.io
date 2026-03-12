@@ -1,0 +1,130 @@
+<nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700" aria-label="Hauptnavigation">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="flex items-center justify-between h-14">
+      <a routerLink="/home" class="text-lg font-semibold text-gray-900 dark:text-white" aria-label="Startseite">
+        ni0.team
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-1">
+        <ul class="flex gap-1" role="list">
+          @for (link of navLinks; track link.path) {
+            <li>
+              <a
+                [routerLink]="link.path"
+                routerLinkActive="bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium"
+                class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          }
+          <li>
+            <a
+              href="https://github.com/orgs/NI0-Name-Ideas-0/repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="GitHub Repository (öffnet in neuem Tab)"
+            >
+              Repository ↗
+            </a>
+          </li>
+        </ul>
+
+        <!-- Dark mode toggle -->
+        <button
+          type="button"
+          (click)="theme.toggle()"
+          [attr.aria-label]="theme.dark() ? 'Helles Design aktivieren' : 'Dunkles Design aktivieren'"
+          class="ml-1 p-2 rounded text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        >
+          @if (theme.dark()) {
+            <!-- Sun icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          } @else {
+            <!-- Moon icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          }
+        </button>
+      </div>
+
+      <!-- Mobile right side: toggle + hamburger -->
+      <div class="md:hidden flex items-center gap-1">
+        <button
+          type="button"
+          (click)="theme.toggle()"
+          [attr.aria-label]="theme.dark() ? 'Helles Design aktivieren' : 'Dunkles Design aktivieren'"
+          class="p-2 rounded text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+        >
+          @if (theme.dark()) {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          }
+        </button>
+        <button
+          type="button"
+          class="p-2 rounded text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+          [attr.aria-expanded]="menuOpen()"
+          aria-controls="mobile-menu"
+          aria-label="Navigation öffnen"
+          (click)="toggleMenu()"
+        >
+          @if (menuOpen()) {
+            <span aria-hidden="true">✕</span>
+          } @else {
+            <span aria-hidden="true">☰</span>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (menuOpen()) {
+    <div id="mobile-menu" class="md:hidden border-t border-gray-100 dark:border-gray-800">
+      <ul class="px-4 py-2 flex flex-col gap-1" role="list">
+        @for (link of navLinks; track link.path) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium"
+              class="block px-3 py-2 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+              (click)="closeMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+        <li>
+          <a
+            href="https://github.com/orgs/NI0-Name-Ideas-0/repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block px-3 py-2 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+            (click)="closeMenu()"
+          >
+            Repository ↗
+          </a>
+        </li>
+      </ul>
+    </div>
+  }
+</nav>
