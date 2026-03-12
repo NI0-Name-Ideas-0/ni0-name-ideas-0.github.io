@@ -1,23 +1,23 @@
 <div class="max-w-5xl mx-auto px-4 py-12">
-  <h1 class="text-3xl font-bold text-gray-900 mb-2">Projektplan</h1>
-  <p class="text-gray-500 mb-10">Meilensteine, Arbeitspakete und Terminplan</p>
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Projektplan</h1>
+  <p class="text-gray-500 dark:text-gray-400 mb-10">Meilensteine, Arbeitspakete und Terminplan</p>
 
   <!-- Meilensteine -->
   <section class="mb-12" aria-labelledby="milestones-heading">
-    <h2 id="milestones-heading" class="text-xl font-semibold text-gray-900 mb-6">
+    <h2 id="milestones-heading" class="text-xl font-semibold text-gray-900 dark:text-white mb-6">
       Meilensteine
     </h2>
-    <ol class="relative border-l border-gray-200 ml-3" aria-label="Projektmeilensteine">
+    <ol class="relative border-l border-gray-200 dark:border-gray-700 ml-3" aria-label="Projektmeilensteine">
       @for (ms of milestones(); track ms.title) {
         <li class="mb-8 ml-6">
           <span
-            class="absolute -left-3 flex items-center justify-center w-6 h-6 rounded-full ring-4 ring-white text-xs font-bold"
+            class="absolute -left-3 flex items-center justify-center w-6 h-6 rounded-full ring-4 ring-gray-50 dark:ring-gray-950 text-xs font-bold"
             [class]="
               ms.status === 'done'
-                ? 'bg-green-100 text-green-700'
+                ? 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300'
                 : ms.status === 'in-progress'
-                ? 'bg-blue-100 text-blue-700'
-                : 'bg-gray-100 text-gray-500'
+                ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400'
             "
             aria-hidden="true"
           >
@@ -27,20 +27,20 @@
           </span>
           <div class="flex items-start justify-between gap-4">
             <div>
-              <h3 class="text-sm font-semibold text-gray-900 mb-0.5">{{ ms.title }}</h3>
-              <p class="text-sm text-gray-500 mb-1">{{ ms.description }}</p>
+              <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-0.5">{{ ms.title }}</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">{{ ms.description }}</p>
             </div>
             <div class="shrink-0 text-right">
-              <time class="text-xs text-gray-400">{{ ms.date }}</time>
+              <time class="text-xs text-gray-400 dark:text-gray-500">{{ ms.date }}</time>
               <div class="mt-1">
                 <span
                   class="text-xs px-2 py-0.5 rounded-full font-medium"
                   [class]="
                     ms.status === 'done'
-                      ? 'bg-green-50 text-green-700'
+                      ? 'bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300'
                       : ms.status === 'in-progress'
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'bg-gray-100 text-gray-500'
+                      ? 'bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300'
+                      : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400'
                   "
                 >
                   @if (ms.status === 'done') { Abgeschlossen }
@@ -57,22 +57,22 @@
 
   <!-- Arbeitspakete -->
   <section aria-labelledby="wp-heading">
-    <h2 id="wp-heading" class="text-xl font-semibold text-gray-900 mb-6">
+    <h2 id="wp-heading" class="text-xl font-semibold text-gray-900 dark:text-white mb-6">
       Projektstrukturplan (Arbeitspakete)
     </h2>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       @for (wp of workPackages(); track wp.id) {
-        <div class="bg-white border border-gray-200 rounded-lg p-4">
+        <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
           <div class="flex items-center gap-2 mb-3">
-            <span class="text-xs font-mono font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
+            <span class="text-xs font-mono font-bold bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded">
               {{ wp.id }}
             </span>
-            <h3 class="text-sm font-semibold text-gray-900">{{ wp.title }}</h3>
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-white">{{ wp.title }}</h3>
           </div>
           <ul class="space-y-1" role="list">
             @for (task of wp.tasks; track task) {
-              <li class="text-xs text-gray-600 flex items-center gap-1.5">
-                <span class="text-gray-300" aria-hidden="true">—</span>
+              <li class="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-1.5">
+                <span class="text-gray-300 dark:text-gray-600" aria-hidden="true">—</span>
                 {{ task }}
               </li>
             }
