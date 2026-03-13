@@ -36,7 +36,7 @@ export class HomeComponent {
   ]);
 
   protected readonly externalLinks = signal([
-    { label: 'Repository', url: 'https://github.com/orgs/NI0-Name-Ideas-0/repositories', domain: 'github.com', icon: 'https://github.githubassets.com/favicons/favicon-dark.png' },
+    { label: 'Repository', url: 'https://github.com/orgs/NI0-Name-Ideas-0/repositories', domain: 'github.com', icon: 'https://github.githubassets.com/favicons/favicon.png', iconDark: 'https://github.githubassets.com/favicons/favicon-dark.png' },
     { label: 'ClickUp', url: 'https://app.clickup.com/90121535866/v/s/90126615524', domain: 'app.clickup.com' },
   ]);
 }
