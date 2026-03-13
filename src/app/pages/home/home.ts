@@ -35,10 +35,8 @@ export class HomeComponent {
     'Fortschrittsverfolgung und Berichterstellung',
   ]);
 
-  protected readonly quickLinks = signal([
-    { label: 'Projekt ansehen', path: '/project' },
-    { label: 'Team kennenlernen', path: '/team' },
-    { label: 'Projektplan', path: '/plan' },
-    { label: 'Fortschritt', path: '/documentation' },
+  protected readonly externalLinks = signal([
+    { label: 'Repository', url: 'https://github.com/orgs/NI0-Name-Ideas-0/repositories', domain: 'github.com', icon: 'https://github.githubassets.com/favicons/favicon-dark.png' },
+    { label: 'ClickUp', url: 'https://app.clickup.com/90121535866/v/s/90126615524', domain: 'app.clickup.com' },
   ]);
 }
