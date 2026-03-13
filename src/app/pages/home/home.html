@@ -1,25 +1,36 @@
-<div class="max-w-5xl mx-auto px-4 py-12">
-  <!-- Hero -->
-  <section class="mb-12" aria-labelledby="hero-heading">
-    <div class="mb-2 text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wide">
+<!-- Hero — full-bleed gradient -->
+<section
+  class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 dark:from-gray-950 dark:via-blue-950 dark:to-indigo-950"
+  aria-labelledby="hero-heading"
+>
+  <!-- Decorative glow blobs -->
+  <div class="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative max-w-5xl mx-auto px-4 py-16">
+    <div class="mb-2 text-sm font-medium text-blue-200 uppercase tracking-wide">
       Software Engineering &mdash; Universitätsprojekt
     </div>
-    <h1 id="hero-heading" class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+    <h1 id="hero-heading" class="text-5xl font-bold text-white leading-tight mb-4 motion-safe:animate-fade-in-up">
       {{ projectName() }}
     </h1>
-    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mb-6">
+    <p class="text-lg text-blue-100 max-w-2xl mb-6 motion-safe:animate-fade-in-up-delay-1">
       Ein webbasiertes System zur strukturierten Planung und Verwaltung von Aufgaben
       innerhalb von Organisationen. Aufgaben können priorisiert, zugewiesen und
       automatisch geplant werden.
     </p>
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded text-sm text-amber-800 dark:text-amber-300">
-      <span class="w-2 h-2 rounded-full bg-amber-500" aria-hidden="true"></span>
+    <div
+      class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full backdrop-blur-sm text-sm text-white motion-safe:animate-fade-in-up-delay-2"
+    >
+      <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse" aria-hidden="true"></span>
       <span>Projektstatus: {{ projectStatus() }}</span>
     </div>
-  </section>
+  </div>
+</section>
 
+<div class="max-w-5xl mx-auto px-4 py-12">
   <!-- Gallery -->
-  <section class="mb-12" aria-labelledby="gallery-heading">
+  <section class="mb-12 motion-safe:animate-fade-in-up" aria-labelledby="gallery-heading">
     <h2 id="gallery-heading" class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
       Produktbilder
     </h2>
@@ -32,12 +43,32 @@
         &#8592;
       </button>
 
-      <div class="flex-1 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-lg px-6 py-16 text-center">
-        <div class="w-12 h-12 mx-auto mb-4 rounded border-2 border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-300 dark:text-gray-600 text-xl" aria-hidden="true">
-          &#9974;
+      <!-- Browser frame wireframe -->
+      <div class="flex-1 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+        <!-- Browser chrome -->
+        <div class="flex items-center gap-1.5 px-3 py-2.5 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/80" aria-hidden="true">
+          <span class="w-3 h-3 rounded-full bg-red-400"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+          <span class="w-3 h-3 rounded-full bg-green-400"></span>
+          <div class="ml-2 flex-1 h-4 rounded bg-gray-200 dark:bg-gray-700 max-w-48"></div>
         </div>
-        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ slide().title }}</p>
-        <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">{{ slide().description }}</p>
+        <!-- Skeleton content -->
+        <div class="px-5 py-5 space-y-3" aria-hidden="true">
+          <div class="h-5 rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 bg-[length:200%_100%] motion-safe:animate-shimmer w-3/4"></div>
+          <div class="h-3 rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 bg-[length:200%_100%] motion-safe:animate-shimmer w-full"></div>
+          <div class="h-3 rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 bg-[length:200%_100%] motion-safe:animate-shimmer w-5/6"></div>
+          <div class="grid grid-cols-3 gap-2 pt-1">
+            <div class="h-16 rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 bg-[length:200%_100%] motion-safe:animate-shimmer"></div>
+            <div class="h-16 rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 bg-[length:200%_100%] motion-safe:animate-shimmer"></div>
+            <div class="h-16 rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 bg-[length:200%_100%] motion-safe:animate-shimmer"></div>
+          </div>
+          <div class="h-3 rounded bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 bg-[length:200%_100%] motion-safe:animate-shimmer w-2/3"></div>
+        </div>
+        <!-- Slide label -->
+        <div class="px-5 pb-4 text-center">
+          <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ slide().title }}</p>
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">{{ slide().description }}</p>
+        </div>
       </div>
 
       <button
@@ -64,14 +95,17 @@
   </section>
 
   <!-- Features -->
-  <section class="mb-12" aria-labelledby="features-heading">
+  <section class="mb-12 motion-safe:animate-fade-in-up-delay-1" aria-labelledby="features-heading">
     <h2 id="features-heading" class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
       Kernfunktionen
     </h2>
     <ul class="grid sm:grid-cols-2 gap-3" role="list">
       @for (feature of features(); track feature) {
-        <li class="flex items-start gap-2 p-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg">
-          <span class="text-blue-500 dark:text-blue-400 mt-0.5 shrink-0" aria-hidden="true">✓</span>
+        <li class="flex items-start gap-3 p-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg">
+          <span
+            class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400 text-xs font-bold"
+            aria-hidden="true"
+          >✓</span>
           <span class="text-gray-700 dark:text-gray-300 text-sm">{{ feature }}</span>
         </li>
       }
@@ -79,7 +113,7 @@
   </section>
 
   <!-- External links -->
-  <section class="mb-12" aria-labelledby="external-links-heading">
+  <section class="mb-12 motion-safe:animate-fade-in-up-delay-2" aria-labelledby="external-links-heading">
     <h2 id="external-links-heading" class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
       Links
     </h2>
@@ -90,7 +124,7 @@
             [href]="link.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-3 p-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-300 dark:hover:border-blue-700 transition-colors"
+            class="flex items-center gap-3 p-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-300 dark:hover:border-blue-700 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
           >
             <img
               [src]="faviconSrc(link)"

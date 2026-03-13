@@ -1,13 +1,19 @@
 <div class="max-w-5xl mx-auto px-4 py-12">
-  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Team</h1>
-  <p class="text-gray-500 dark:text-gray-400 mb-10">
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 motion-safe:animate-fade-in-up">Team</h1>
+  <p class="text-gray-500 dark:text-gray-400 mb-10 motion-safe:animate-fade-in-up">
     Unser Team besteht aus Studierenden im Rahmen der Lehrveranstaltung Software Engineering.
   </p>
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6" role="list">
     @for (member of members(); track member.name) {
       <article
-        class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6"
+        class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
+        [class]="
+          $index === 0 ? 'motion-safe:animate-fade-in-up' :
+          $index === 1 ? 'motion-safe:animate-fade-in-up-delay-1' :
+          $index === 2 ? 'motion-safe:animate-fade-in-up-delay-2' :
+          'motion-safe:animate-fade-in-up-delay-3'
+        "
         role="listitem"
       >
         @if (member.github) {
@@ -18,10 +24,10 @@
           />
         } @else {
           <div
-            class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-4"
+            class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4"
             aria-hidden="true"
           >
-            <span class="text-blue-700 dark:text-blue-300 font-semibold text-lg">
+            <span class="text-white font-semibold text-lg">
               {{ member.name.charAt(0) }}
             </span>
           </div>
@@ -41,7 +47,7 @@
             [href]="member.github"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:underline transition-colors"
             [attr.aria-label]="member.name + ' auf GitHub'"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
