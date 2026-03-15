@@ -8,7 +8,8 @@ export const routes: Routes = [
   },
   {
     path: 'project',
-    loadComponent: () => import('./pages/project/project').then(m => m.ProjectComponent),
+    loadComponent: () =>
+      import('./pages/under-construction/under-construction').then(m => m.UnderConstructionComponent),
   },
   {
     path: 'team',
@@ -21,6 +22,6 @@ export const routes: Routes = [
   {
     path: 'documentation',
     loadComponent: () =>
-      import('./pages/documentation/documentation').then(m => m.DocumentationComponent),
+      import('./pages/under-construction/under-construction').then(m => m.UnderConstructionComponent),
   },
 ];
